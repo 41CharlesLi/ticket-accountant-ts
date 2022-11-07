@@ -17,6 +17,7 @@ import SearchInput from "./Components/SearchInput";
 
 function App() {
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [searchResults, setSearchResults] = useState(null);
 
     const getConcerts = async (e: React.SyntheticEvent) => {
         e.preventDefault();
@@ -24,7 +25,7 @@ function App() {
             `https://app.ticketmaster.com/discovery/v2/events.json?size=10&keyword=${searchTerm}&apikey=BJwaGMsOKlYF3J3uzGUf9V3s0DMHofGE`
         );
         const data = await api.json();
-        console.log(data._embedded.events);
+        setSearchResults(data._embedded.events);
         //important info: Name, Images (see if you can use 3 in a carousel), sale-public-start-time, url to ticketmaster, embedded.venue.name/city/county, if pricerange available
     };
 
