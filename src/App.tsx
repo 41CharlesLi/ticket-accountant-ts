@@ -17,7 +17,7 @@ import SearchInput from "./Components/SearchInput";
 
 function App() {
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [searchResults, setSearchResults] = useState(null);
+    const [searchResults, setSearchResults] = useState<object[]>([]);
 
     const getConcerts = async (e: React.SyntheticEvent) => {
         e.preventDefault();
@@ -38,7 +38,10 @@ function App() {
             />
 
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route
+                    path="/"
+                    element={<Home searchResults={searchResults} />}
+                />
                 <Route path="/MyConcerts" element={<MyConcerts />} />
                 <Route path="/login" element={<Login />} />
             </Routes>

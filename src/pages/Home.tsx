@@ -1,12 +1,28 @@
 import React from "react";
 import SearchResult from "../Components/SearchResult";
 
-function Home() {
+interface resultObject {
+    id?: string;
+}
+
+type SearchResultsProps = {
+    searchResults?: resultObject[];
+};
+
+function Home({ searchResults }: SearchResultsProps) {
     return (
         <>
             <h2>Search Results</h2>
 
-            <SearchResult />
+            {searchResults &&
+                searchResults.map((searchResult) => {
+                    console.log(searchResult);
+                    return (
+                        <div className="searchResult" key={searchResult.id}>
+                            <SearchResult searchResult={searchResult} />
+                        </div>
+                    );
+                })}
         </>
     );
 }

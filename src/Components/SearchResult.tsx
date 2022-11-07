@@ -1,6 +1,10 @@
 import React from "react";
 
-function SearchResult() {
+type searchResultProps = {
+    searchResult: object;
+};
+
+function SearchResult({ searchResult }: searchResultProps) {
     return <div>SearchResult</div>;
 }
 
