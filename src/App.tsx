@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Navbar from "./Components/Navbar";
 
 // input boxes to search artist name and price range (maybe a drop down)
 // component to render results with a component to render each card
@@ -25,6 +26,7 @@ function App() {
 
     return (
         <div className="App">
+            <Navbar />
             <form action="" onSubmit={getConcerts}>
                 <input
                     type="text"
