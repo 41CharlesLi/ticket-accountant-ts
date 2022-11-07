@@ -11,7 +11,7 @@ function Navbar() {
         <header>
             <div className="wrapper">
                 <div className="navContainer">
-                    <a href="./">
+                    <a href="/">
                         <img
                             // src={logo}
                             alt="ticket accountant logo"
@@ -78,7 +78,7 @@ function Navbar() {
                                 <i className="fa fa-bars"></i>
                             ) : (
                                 <i className="fa-solid fa-xmark"></i>
-                            )}{" "}
+                            )}
                         </button>
                     </nav>
                 </div>

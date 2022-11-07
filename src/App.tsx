@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "./Components/Navbar";
-
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import MyConcerts from "./pages/MyConcerts";
 // input boxes to search artist name and price range (maybe a drop down)
 // component to render results with a component to render each card
 // add shows to a list...and there's a submit button
@@ -27,6 +30,12 @@ function App() {
     return (
         <div className="App">
             <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/MyConcerts" element={<MyConcerts />} />
+                <Route path="/login" element={<Login />} />
+            </Routes>
+
             <form action="" onSubmit={getConcerts}>
                 <input
                     type="text"
