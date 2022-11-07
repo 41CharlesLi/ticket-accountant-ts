@@ -11,16 +11,28 @@ import { useState } from "react";
 // BJwaGMsOKlYF3J3uzGUf9V3s0DMHofGE
 
 function App() {
-    const getConcerts = async () => {
+    const [searchTerm, setSearchTerm] = useState<string>("");
+
+    const getConcerts = async (e) => {
+        e.preventDefault();
         const api = await fetch(
-            `https://app.ticketmaster.com/discovery/v2/events.json?size=10&keyword='raptors'&apikey=BJwaGMsOKlYF3J3uzGUf9V3s0DMHofGE`
+            `https://app.ticketmaster.com/discovery/v2/events.json?size=10&keyword=${searchTerm}&apikey=BJwaGMsOKlYF3J3uzGUf9V3s0DMHofGE`
         );
         const data = await api.json();
         console.log(data);
     };
-    getConcerts();
 
-    return <div className="App"></div>;
+    return (
+        <div className="App">
+            <form action="" onSubmit={getConcerts}>
+                <input
+                    type="text"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <button>Submit</button>
+            </form>
+        </div>
+    );
 }
 
 export default App;
