@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 // input boxes to search artist name and price range (maybe a drop down)
 // component to render results with a component to render each card
@@ -13,13 +13,14 @@ import { useState } from "react";
 function App() {
     const [searchTerm, setSearchTerm] = useState<string>("");
 
-    const getConcerts = async (e) => {
+    const getConcerts = async (e: React.SyntheticEvent) => {
         e.preventDefault();
         const api = await fetch(
             `https://app.ticketmaster.com/discovery/v2/events.json?size=10&keyword=${searchTerm}&apikey=BJwaGMsOKlYF3J3uzGUf9V3s0DMHofGE`
         );
         const data = await api.json();
-        console.log(data);
+        console.log(data._embedded.events);
+        //important info: Name, Images (see if you can use 3 in a carousel), sale-public-start-time, url to ticketmaster, embedded.venue.name/city/county, if pricerange available
     };
 
     return (
