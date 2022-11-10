@@ -26,7 +26,6 @@ function App() {
         );
         const data = await api.json();
         setSearchResults(data._embedded.events);
-        //important info: Name, Images (see if you can use 3 in a carousel), sale-public-start-time, url to ticketmaster, embedded.venue.name/city/county, if pricerange available
     };
 
     return (

@@ -1,7 +1,12 @@
 import React from "react";
 
+interface resultObject {
+    images: string;
+    _embedded: string;
+}
+
 type searchResultProps = {
-    searchResult: object;
+    searchResult: resultObject;
 };
 
 //important info: Name, Images (see if you can use 3 in a carousel), sale-public-start-time, url to ticketmaster, embedded.venue.name/city/county, if pricerange available

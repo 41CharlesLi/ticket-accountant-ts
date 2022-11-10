@@ -3,6 +3,7 @@ import SearchResult from "../Components/SearchResult";
 
 interface resultObject {
     id?: string;
+    images: string;
 }
 
 type SearchResultsProps = {
