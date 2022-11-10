@@ -42,7 +42,7 @@ function App() {
                     path="/"
                     element={<Home searchResults={searchResults} />}
                 />
-                <Route path="/MyConcerts" element={<MyConcerts />} />
+                <Route path="/myConcerts" element={<MyConcerts />} />
                 <Route path="/login" element={<Login />} />
             </Routes>
         </div>
